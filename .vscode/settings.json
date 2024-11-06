@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Coursework_Game_Mechanics.sln"
+    "dotnet.defaultSolution": "Game-Mechanics-Coursework.sln"
 }
