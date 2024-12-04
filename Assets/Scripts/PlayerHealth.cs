@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 10;
     public int health;
+    public EnemyMovement enemyMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
         if(health <= 0)
         {
+            enemyMovement.isChasing = false;
             Destroy(gameObject);
         }
     }

@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Transform groundCheck;
     [SerializeField] public LayerMask groundLayer;
 
+    public float hitForce;
+    public float hitCounter;
+    public float hitTotalTime;
+    public bool hitFromRight;
 
     // Update is called once per frame
     void Update()
@@ -35,7 +39,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+
+        if (hitCounter <=0 ){
+            body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+        } else {
+
+            if(hitFromRight == true) {
+                body.velocity = new Vector2(-hitForce,hitForce);
+            }
+            if(hitFromRight == false) {
+                body.velocity = new Vector2(hitForce, hitForce);
+            }
+
+            hitCounter -= Time.deltaTime;
+        }
+
     }
 
     private bool IsGrounded()
@@ -52,5 +70,7 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+
+
     }
 }

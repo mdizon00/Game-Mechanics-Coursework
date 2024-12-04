@@ -5,14 +5,14 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
 
-    private float fallDelay = 1f;
+    private float fallDelay = 0.2f;
     private float destroyDelay = 2f;
 
     [SerializeField] private Rigidbody2D rb;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.contacts[0].point.y > transform.position.y && collision.collider.tag == "Player")
+        if(collision.contacts[0].point.y > transform.position.y && collision.collider.tag == "Foot")
         {
             StartCoroutine(Fall());
         }

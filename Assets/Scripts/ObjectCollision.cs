@@ -10,12 +10,13 @@ public class ObjectCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if(collision.contacts[0].point.y > transform.position.y && collision.collider.tag == "Player")
+        if(collision.contacts[0].point.y > transform.position.y && collision.collider.tag == "Foot")
         {
             Destroy(gameObject);
             particle = Instantiate(particle, transform.position, transform.rotation);
             particle.Play();
         }
+
     }
 
 
