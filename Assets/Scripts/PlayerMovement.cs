@@ -22,25 +22,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal"); //returns either 1 or -1
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded()) //checks for spacebar press and if player is touching platform
         {
-            body.velocity = new Vector2(body.velocity.x, jumpingPower);
+            body.velocity = new Vector2(body.velocity.x, jumpingPower); //jump
         }
 
-        if (Input.GetButtonUp("Jump") && body.velocity.y > 0f)
-        {
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
-        }
-
-        Flip();
+        Flip(); //flip method
 
     }
 
     private void FixedUpdate()
     {
 
+        //creates knockback effect when hit by enemy
         if (hitCounter <=0 ){
             body.velocity = new Vector2(horizontal * speed, body.velocity.y);
         } else {
@@ -57,11 +53,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    //checks if player is touching ground
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
+    //checks which way player is walking and flips player accordingly
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)

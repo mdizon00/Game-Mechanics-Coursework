@@ -13,10 +13,13 @@ public class EnemyMovement : MonoBehaviour
     public bool isChasing;
     public float chaseDistance;
 
+    //Update is called once per frame
     void Update()
     {
+        //only runs if enemy is chasing player and player still exists
         if (isChasing && playerTransform != null) {
 
+            //enemy walking and flip to face walking direction
             if(transform.position.x > playerTransform.position.x) {
                 zombieSprite.flipX = true;
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
@@ -26,19 +29,23 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }
 
+        //if enemy not chasing player then run patrol method
         } else if (isChasing == false && playerTransform != null){
 
+            //if player gets close to enemy, enemy will start chasing
             if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance) {
                 isChasing = true;
             }
 
             Patroling();
         } else {
+
             Patroling();
         }
 
     }
 
+    //enemy default walk, moving from 1 point to another
     public void Patroling() {
         if(patrolDestination == 0)
         {
@@ -67,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
 
+        //if enemy collides with box, go back to patrol movement
         if (collision.collider.tag == "Box") {
             isChasing = false;
             //zombieSprite.flipX = !zombieSprite.flipX;

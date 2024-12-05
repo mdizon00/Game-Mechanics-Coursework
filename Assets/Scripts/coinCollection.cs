@@ -4,28 +4,13 @@ using UnityEngine;
 
 public class coinCollection : MonoBehaviour
 {
-
     private int score;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
+    //if object touches coin
     void OnTriggerEnter2D(Collider2D other) {
 
-        scoreUpdate.instance.addPointCoin();
-
-        Destroy(gameObject);
+        scoreUpdate.instance.addPointCoin(); //updates score
+        Destroy(gameObject); //destroys coin
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
 
 }

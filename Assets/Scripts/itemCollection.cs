@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class itemCollection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    //when food is collected, add set points and destroy food
     void OnTriggerEnter2D(Collider2D other) {
 
         scoreUpdate.instance.addPointItem();
@@ -17,9 +13,4 @@ public class itemCollection : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

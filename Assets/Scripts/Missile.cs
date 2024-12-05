@@ -14,12 +14,14 @@ public class Missile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>(); //sets rigidbody from inspector
+        player = GameObject.FindGameObjectWithTag("Player"); //sets player as object with player tag
 
-        Vector3 direction = player.transform.position - transform.position;
+        //direction and speed of bullet set
+        Vector3 direction = player.transform.position - transform.position; //goes towards player current position
         rb.velocity = new Vector2(direction.x, direction.y).normalized*force;
 
+        //missile rotates according to direction its travelling
         float rotation = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0,0,rotation);
     }
@@ -27,21 +29,23 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime; //timer count up
 
-        if(timer > 10){
+        if(timer > 10){ //missile is destoyed after 10 counts
             Destroy(gameObject);
         }
     }
 
+
+    //player damage
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")) {
 
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>(); //finds player health scripts
             if(playerHealth != null){
-                playerHealth.Damage(damage);
+                playerHealth.Damage(damage);//damage is set in inspector
             }
-            Destroy(gameObject);
+            Destroy(gameObject); //destroys missile
         }
     }
 }

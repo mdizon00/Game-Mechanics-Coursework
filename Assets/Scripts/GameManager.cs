@@ -12,22 +12,24 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //death screen is displayed
     public void gameOver(){
         gameOverUI.SetActive(true);
         Debug.Log("game over");
     }
 
+    //loads scene again
     public void restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //goes to menu screen
     public void menu(){
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("0_Menu");
+    }
+
+    //goes to level 1
+    public void play(){
+        SceneManager.LoadScene("1_Must Requirements");
     }
 }
