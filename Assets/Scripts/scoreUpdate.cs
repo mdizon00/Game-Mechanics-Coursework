@@ -32,7 +32,7 @@ public class scoreUpdate : MonoBehaviour
     void Update()
     {
         //checks if all items and coins have been collected before player can move on
-        if (scoreValue >= 18){
+        if (scoreValue >= 15){
             next.SetActive(true); //trigger for next level appears
             arrow.gameObject.SetActive(true); //arrow to guide player appears
         }
