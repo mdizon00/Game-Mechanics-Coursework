@@ -28,7 +28,7 @@ public class CannonShooting : MonoBehaviour
 
             timer += Time.deltaTime;
 
-            if (timer > 2) {
+            if (timer > 0.8) {
                 timer = 0;
                 shoot();
             }

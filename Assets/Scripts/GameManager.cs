@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void gameOver(){
-        Debug.Log("Running");
         gameOverUI.SetActive(true);
+        Debug.Log("game over");
     }
 
     public void restart(){

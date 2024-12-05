@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 16f;
+    public float jumpingPower;
     private bool isFacingRight = true;
 
     [SerializeField] public Rigidbody2D body;
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float hitCounter;
     public float hitTotalTime;
     public bool hitFromRight;
+
 
     // Update is called once per frame
     void Update()
