@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-
     private Rigidbody2D rb;
     private GameObject player;
     public float force;
     private float timer;
+
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,12 @@ public class Missile : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.CompareTag("Player")) {
-            other.gameObject.GetComponent<PlayerHealth>().health -= 1;
+        if(other.CompareTag("Player")) {
+
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if(playerHealth != null){
+                playerHealth.Damage(damage);
+            }
             Destroy(gameObject);
         }
     }

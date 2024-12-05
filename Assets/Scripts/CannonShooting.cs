@@ -9,6 +9,7 @@ public class CannonShooting : MonoBehaviour
     public Transform bulletPos;
     private float timer;
     private GameObject player;
+    private float distance;
 
 
     // Start is called before the first frame update
@@ -20,7 +21,6 @@ public class CannonShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance;
 
         distance = Vector2.Distance(transform.position, player.transform.position);
 

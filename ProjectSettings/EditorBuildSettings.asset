@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1_Must Requirements.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/2_Should Requirements.unity
+    guid: 8925a56bb7ef0bd4fae5a9cc38a1fecb
+  - enabled: 1
+    path: Assets/Scenes/3_Could Requirements.unity
+    guid: e3777cd6c1cb5a644a91317b97e02c3b
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 620d3538702c929468817c8a9f69594c
   m_configObjects: {}

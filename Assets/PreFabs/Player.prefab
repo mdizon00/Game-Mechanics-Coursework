@@ -176,6 +176,8 @@ MonoBehaviour:
   maxHealth: 10
   health: 0
   enemyMovement: {fileID: 0}
+  gameManager: {fileID: 2321431425656895561, guid: 1a8e3ccd42d34a546982ea36d44f270b, type: 3}
+  healthBar: {fileID: 7211595787682809066, guid: 70e351f6a6826cb4bbf92b7be5c07675, type: 3}
 --- !u!114 &7237986683088514207
 MonoBehaviour:
   m_ObjectHideFlags: 0
