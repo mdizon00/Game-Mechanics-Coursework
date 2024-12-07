@@ -8,9 +8,10 @@ public class itemCollection : MonoBehaviour
     //when food is collected, add set points and destroy food
     void OnTriggerEnter2D(Collider2D other) {
 
-        scoreUpdate.instance.addPointItem();
-
-        Destroy(gameObject);
+        if (other.CompareTag("Player")){
+            scoreUpdate.instance.addPointItem();//add set points
+            Destroy(gameObject); //destroy item
+        }
     }
 
 }
